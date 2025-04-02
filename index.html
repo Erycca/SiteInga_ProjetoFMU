@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Luz Ingá</title>
+        <style>
+                *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Courier New', Courier, monospace;
+                }
+
+                 body{
+                background-color: #d4c1c1;
+                }
+                .logo-title a{
+                text-decoration: none;
+                color: white;
+                }
+
+                .header{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 20px;
+                    background-color: #cfa7a7;
+                }
+                .subscribe.button{
+                    padding: 15px 25px;
+                    background-color: #212121;
+                    color: #fff;
+                    text-decoration: none;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                .select-category {
+                    margin-left: 20px;
+                    padding: 15px;
+                    border: 1px solid #615d5d;
+                    border-radius: 5px;
+                    background-color: #3d3535;
+                    color: white;
+                    font-size: 1em;
+                }
+                /*fim do header*/
+
+                .prompt {
+                    background-color: #5172ce;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    position: relative;
+                    transition: transform 0.3s;
+                }
+                .prompt:hover{
+                    transform: scale(1.05);
+                }
+                .prompt-image {
+                    background-color: #555;
+                    padding: 0;
+                    display: grid;
+                    place-items: center;
+                }
+                .prompt-info {
+                    padding: 10px;
+                    text-align: center;
+                }
+                .prompt-info h3 {
+                    margin: 0;
+                    color: white;
+                }
+                .prompt-info p {
+                    margin: 5px 0;
+                    color: #ccc;
+                }
+                .prompt-description {
+                    background-color: #222;
+                    margin: #fff;
+                    padding: 10px;
+                }
+                .content {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);/*mudado para 3 coluna*/
+                    gap: 30px;
+                    padding: 20px;
+                    max-width: 1280px;
+                    margin: 10px auto;
+                }
+                .label{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    padding: 3px 6px;
+                    color: white;
+                    background-color: rgba(0,0 ,0,0, 4);
+                }
+                .prompt .subscribe.button {
+                    margin: 8px auto;
+                    display: block;.
+                    width: 200px;
+                    text-align: center;
+                }
+                .footer{
+                    background-color: #685959;
+                    color: white;
+                    padding: 20px;
+                    margin: 0 auto;
+                }
+                .footer-wrapper{
+                    justify-content: space-between;
+                    display: flex;
+                    max-width: 1280px;
+                    margin: 0 auto;
+                }
+                @media screen and (max-width: 768px) {
+                    .content{
+                        grid-template-columns: 1fr;
+                    }
+                    
+                }
+
+        
+
+        </style>
+         <script>
+            function filterPrompts(){
+                var input = document.getElementById('searchInput').value.toUpperCase();
+                var prompts = document.getElementsByClassName('prompt');
+                for(var i = 0; i < prompts.length; i++) {
+                    var h3 = prompts[i].getElementsByTagName('h3')[0];
+                    if(h3.innerHTML.toUpperCase().indexOf(input) > -1) {
+                     } else {
+                       prompts[i].style.display = "none";                                             
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="header">
+            <div class="logo-title">
+            <a href=""><h3>Luz Ingá</h3></a>
+
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar prompts" id="searchInput" onkeyup="filterPrompts()">
+            <select id="categorySelect" class="select-category" onchange="filterPrompts()">
+                <option value="Todos">Todos</option>
+                <option value="* GPT4">GPT4</option>
+                <option value="* GPT4 Vision ">GPT4 Visiom</option>
+                <option value="Categoria3">Gemini</option>
+            <!-- Adicione mais categorias de acorodo com seu banco de dados-->
+        </select>            
+        </div> <!--searchbar-->
+
+    </div><!--header-->
+    <div class="content">
+
+    <div class="prompts">
+        <div class="label">GPT4</div>
+        <div class="prompt-image">
+            <image src="images.jpg"  alt="Imagem" />
+        </div>
+        <div class="prompt-info">
+            <h3>Instalação Residencial</h3>
+            <p>valor</p>
+        </div>
+        <div class="prompt-description">
+                        <p>Energia Sustentavel</p>
+        </div>
+        <a class="subscribe-button" href="#">Ver Completo</a>
+        
+    </div> <!--prompt-->
+    <div class="prompts">
+        <div class="label">GPT4</div>
+        <div class="prompt-image">
+            <image src="images.jpg"  alt="Imagem" />
+        </div>
+        <div class="prompt-info">
+            <h3>Instalação Comercial</h3>
+            <p>valor</p>
+        </div>
+        <div class="prompt-description">
+                        <p>Energia Sustentavel</p>
+        </div>
+        <a class="subscribe-button" href="#">Ver Completo</a>
+        
+    </div> <!--prompt-->
+    <div class="prompts">
+        <div class="label">GPT4</div>
+        <div class="prompt-image">
+            <image src="images.jpg"  alt="Imagem" />
+        </div>
+        <div class="prompt-info">
+            <h3>Instalação Industrial</h3>
+            <p>valor</p>
+        </div>
+        <div class="prompt-description">
+                        <p>Energia Sustentavel</p>
+        </div>
+        <a class="subscribe-button" href="#">Ver Completo</a>
+        
+    </div> <!--prompt-->
+</div>
+
+    <div class="header">
+        <div class="logo-title">
+            <p>@ 2025 - Desenvolvido por Érica Silva </p>
+        <a href="https://www.linkedin.com/in/ericabarbosaanalista/"><h3>linkedin</h3></a>
+
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h2>Faça um Orçamento</h2>
+        </div>
+
+   <form id="form" class="form">
+        <div class="form-control">
+            <label for="username">Nome Completo</label>
+            <imput type="text " id="username" />
+            <i class="fas fa-exclamation-circle"> </i>
+            <i class="fas fa-check-circle"></i>
+            <small>Insira o nome completo</small>
+        </div>
+
+        <div class="form-control">
+            <label for="email">email</label>
+            <imput type="text " id="email" />
+            <i class="fas fa-exclamation-circle"> </i>
+            <i class="fas fa-check-circle"></i>
+            <small>Por favor, insira um em-mail válido</small>
+        </div>
+
+        <div class="form-control">
+            <label for="Orçamento">Orçamento</label>
+            <imput type="text " id="Orçamento" />
+            <i class="fas fa-exclamation-circle"> </i>
+            <i class="fas fa-check-circle"></i>
+            <small>Informe o tipo de instalação no Orçamento</small>
+        </div>
+
+        <button type="submit">Enviar</button>
+
+        </form>
+
+    </div>
+    
+    </body>
+</html>
