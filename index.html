@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Luz Ingá</title>
         <style>
-                *{
+              *{
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
                 font-family: 'Courier New', Courier, monospace;
-                }
+    }
 
                  body{
                 background-color: #d4c1c1;
@@ -122,9 +122,8 @@
                     
                 }
 
-        
-
         </style>
+        
          <script>
             function filterPrompts(){
                 var input = document.getElementById('searchInput').value.toUpperCase();
@@ -137,6 +136,7 @@
                     }
                 }
             }
+            
         </script>
     </head>
     <body>
@@ -207,48 +207,66 @@
     </div> <!--prompt-->
 </div>
 
+<form action="DadosPessoais.php" method="post">
+    <fieldset>
+        <legend>Informações do Usuário</legend>
+        <table cellpadding="8">
+            <tr>
+                  <td>
+                      <label for="nome">Nome:</label>
+                  </td>
+                <td align="left">
+                    <input type="text" nome="nome" value="Digite seu nome">
+                </td>
+                <tr>
+            <td>
+                <label>Data de nascimento: </label>
+            </td>
+            <td align="left">
+                <input type="text" name="dia" size="2"  maxlength="2" value="dd">
+                <input type="text" name="mes" size="2"  maxlength="2" value="mm">
+                <input type="text" name="ano" size="4"  maxlength="4" value="aaaa">
+            </td>
+            </tr>
+            <tr>
+            <td>
+                <label for="Reg">Região: </label>
+            </td>
+            <td align="left">
+                <select name="Reg">
+                    <option value="N">Norte</option>
+                    <option value="NE">Nordeste</option>
+                    <option value="CO">Centro-oeste</option>
+                    <option value="SE">Sudeste</option>
+                    <option value="S">Sul</option>
+    
+                </select>
+            </td>
+            <td>
+                <label for="senha">Senha: </label>
+            </td>
+            <td align="left">
+                <input type="passaporte" nome="senha">
+            </td>
+            </tr>
+        </table>
+    </fieldset>
+            <input type="submit"  value="Enviar">
+            <input type="reset" value="Limpar Formulário">
+    </form>
+ 
+   
+
     <div class="header">
         <div class="logo-title">
             <p>@ 2025 - Desenvolvido por Érica Silva </p>
         <a href="https://www.linkedin.com/in/ericabarbosaanalista/"><h3>linkedin</h3></a>
 
     </div>
-
-    <div class="container">
-        <div class="header">
-            <h2>Faça um Orçamento</h2>
-        </div>
-
-   <form id="form" class="form">
-        <div class="form-control">
-            <label for="username">Nome Completo</label>
-            <imput type="text " id="username" />
-            <i class="fas fa-exclamation-circle"> </i>
-            <i class="fas fa-check-circle"></i>
-            <small>Insira o nome completo</small>
-        </div>
-
-        <div class="form-control">
-            <label for="email">email</label>
-            <imput type="text " id="email" />
-            <i class="fas fa-exclamation-circle"> </i>
-            <i class="fas fa-check-circle"></i>
-            <small>Por favor, insira um em-mail válido</small>
-        </div>
-
-        <div class="form-control">
-            <label for="Orçamento">Orçamento</label>
-            <imput type="text " id="Orçamento" />
-            <i class="fas fa-exclamation-circle"> </i>
-            <i class="fas fa-check-circle"></i>
-            <small>Informe o tipo de instalação no Orçamento Residencial</small>
-        </div>
-
-        <button type="submit">Enviar</button>
-
-        </form>
-
+   
     </div>
+
+
     
     </body>
 </html>
