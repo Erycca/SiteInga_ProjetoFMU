@@ -207,54 +207,66 @@
     </div> <!--prompt-->
 </div>
 
-<form action="DadosPessoais.php" method="post">
-    <fieldset>
-        <legend>Informações do Usuário</legend>
-        <table cellpadding="8">
-            <tr>
-                  <td>
-                      <label for="nome">Nome:</label>
-                  </td>
-                <td align="left">
-                    <input type="text" nome="nome" value="Digite seu nome">
-                </td>
-                <tr>
-            <td>
-                <label>Data de nascimento: </label>
-            </td>
-            <td align="left">
-                <input type="text" name="dia" size="2"  maxlength="2" value="dd">
-                <input type="text" name="mes" size="2"  maxlength="2" value="mm">
-                <input type="text" name="ano" size="4"  maxlength="4" value="aaaa">
-            </td>
-            </tr>
-            <tr>
-            <td>
-                <label for="Reg">Região: </label>
-            </td>
-            <td align="left">
-                <select name="Reg">
-                    <option value="N">Norte</option>
-                    <option value="NE">Nordeste</option>
-                    <option value="CO">Centro-oeste</option>
-                    <option value="SE">Sudeste</option>
-                    <option value="S">Sul</option>
-    
-                </select>
-            </td>
-            <td>
-                <label for="senha">Senha: </label>
-            </td>
-            <td align="left">
-                <input type="passaporte" nome="senha">
-            </td>
-            </tr>
-        </table>
-    </fieldset>
-            <input type="submit"  value="Enviar">
-            <input type="reset" value="Limpar Formulário">
-    </form>
- 
+<h1>Solicite seu Orçamento</h1>
+<form id="formOrcamento" onsubmit="return validarFormulario(event)">
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" name="nome"><br>
+    <span id="erroNome" class="erro">Preencha com seu nome completo</span><br>
+
+    <label for="email">E-mail:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <span id="erroEmail" class="erro">Digite um e-mail válido </span><br>
+
+    <label for="mensagem">Mensagem:</label><br>
+    <textarea id="mensagem" name="mensagem"></textarea><br>
+    <span id="erroMensagem" class="erro">Solicite seu orçamento</span><br>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<script>
+    function validarFormulario(event) {
+        event.preventDefault(); // Não deixa o formulário enviar direto
+
+        // Pegando os valores dos campos
+        let nome = document.getElementById("nome").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let mensagem = document.getElementById("mensagem").value.trim();
+
+        // Resetando as mensagens de erro
+        document.getElementById("erroNome").style.display = "none";
+        document.getElementById("erroEmail").style.display = "none";
+        document.getElementById("erroMensagem").style.display = "none";
+
+        let tudoOk = true;
+
+        // Validando o nome
+        if (nome === "") {
+            document.getElementById("erroNome").style.display = "block";
+            tudoOk = false;
+        }
+
+        // Validando o e-mail (tem que ter @ e algo antes e depois)
+        if (!email.includes("@") || email === "" || email.indexOf("@") === 0 || email.indexOf("@") === email.length - 1) {
+            document.getElementById("erroEmail").style.display = "block";
+            tudoOk = false;
+        }
+
+        // Validando a mensagem
+        if (mensagem === "") {
+            document.getElementById("erroMensagem").style.display = "block";
+            tudoOk = false;
+        }
+
+        // Se tudo estiver certo, mostra um aviso e "envia"
+        if (tudoOk) {
+            alert("Formulário enviado com sucesso!\nNome: " + nome + "\nE-mail: " + email + "\nMensagem: " + mensagem);
+            document.getElementById("formOrcamento").reset(); // Limpa o formulário
+        }
+
+        return OrçamentoOk;
+    }
+</script>
    
 
     <div class="header">
