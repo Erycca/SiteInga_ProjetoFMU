@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UFT-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Luz Ingá</title>
         <style>
@@ -12,8 +12,8 @@
                 font-family: 'Courier New', Courier, monospace;
     }
 
-                 body{
-                background-color: #d4c1c1;
+                body{
+                background-color: #778da9;
                 }
                 .logo-title a{
                 text-decoration: none;
@@ -25,11 +25,11 @@
                     align-items: center;
                     justify-content: space-between;
                     padding: 20px;
-                    background-color: #cfa7a7;
+                    background-color: #415a77;
                 }
                 .subscribe.button{
                     padding: 15px 25px;
-                    background-color: #212121;
+                    background-color: #0D1B2A;
                     color: #fff;
                     text-decoration: none;
                     border: none;
@@ -39,16 +39,16 @@
                 .select-category {
                     margin-left: 20px;
                     padding: 15px;
-                    border: 1px solid #615d5d;
+                    border: 1px solid #e0e1dd;
                     border-radius: 5px;
-                    background-color: #3d3535;
-                    color: white;
+                    background-color: #e0e1dd;
+                    color: #1b263b;
                     font-size: 1em;
                 }
                 /*fim do header*/
 
                 .prompt {
-                    background-color: #5172ce;
+                    background-color: #457b9d;
                     border-radius: 8px;
                     overflow: hidden;
                     cursor: pointer;
@@ -59,7 +59,7 @@
                     transform: scale(1.05);
                 }
                 .prompt-image {
-                    background-color: #555;
+                    background-color: #e0e1dd;
                     padding: 0;
                     display: grid;
                     place-items: center;
@@ -70,15 +70,15 @@
                 }
                 .prompt-info h3 {
                     margin: 0;
-                    color: white;
+                    color: #e0e1dd;
                 }
                 .prompt-info p {
                     margin: 5px 0;
-                    color: #ccc;
+                    color: #e0e1dd;
                 }
                 .prompt-description {
-                    background-color: #222;
-                    margin: #fff;
+                    background-color: #778da9;
+                    margin: #e0e1dd;
                     padding: 10px;
                 }
                 .content {
@@ -94,7 +94,7 @@
                     left: 0;
                     top: 0;
                     padding: 3px 6px;
-                    color: white;
+                    color: #e0e1dd;
                     background-color: rgba(0,0 ,0,0, 4);
                 }
                 .prompt .subscribe.button {
@@ -104,8 +104,8 @@
                     width: 200px;
                 }
                 .footer{
-                    background-color: #685959;
-                    color: white;
+                    background-color:#778da9;
+                    color: #e0e1dd;
                     padding: 20px;
                     margin: 0 auto;
                 }
@@ -125,17 +125,20 @@
         </style>
         
          <script>
-            function filterPrompts(){
-                var input = document.getElementById('searchInput').value.toUpperCase();
-                var prompts = document.getElementsByClassName('prompt');
-                for(var i = 0; i < prompts.length; i++) {
-                    var h3 = prompts[i].getElementsByTagName('h3')[0];
-                    if(h3.innerHTML.toUpperCase().indexOf(input) > -1) {
-                     } else {
-                       prompts[i].style.display = "none";                                             
-                    }
-                }
+               function filterPrompts() {
+            const input = document.getElementById('searchInput').value.toUpperCase();
+            const category = document.getElementById('categorySelect').value.toUpperCase();
+            const prompts = document.getElementsByClassName('prompt');
+
+            for (let i = 0; i < prompts.length; i++) {
+                const title = prompts[i].getElementsByTagName('h3')[0].innerText.toUpperCase();
+                const label = prompts[i].getElementsByClassName('label')[0].innerText.toUpperCase();
+                const matchesInput = title.includes(input);
+                const matchesCategory = category === "" || label === category;
+
+                prompts[i].style.display = matchesInput && matchesCategory ? "block" : "none";
             }
+        }
             
         </script>
     </head>
@@ -143,66 +146,67 @@
 
         <div class="header">
             <div class="logo-title">
-            <a href=""><h3>Luz Ingá</h3></a>
+            <h1>Luz Ingá</h1>
 
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Buscar prompts" id="searchInput" onkeyup="filterPrompts()">
             <select id="categorySelect" class="select-category" onchange="filterPrompts()">
-                <option value="Todos">Todos</option>
-                <option value="* GPT4">GPT4</option>
-                <option value="* GPT4 Vision ">GPT4 Visiom</option>
-                <option value="Categoria3">Gemini</option>
-            <!-- Adicione mais categorias de acorodo com seu banco de dados-->
+                <option value="">Categorias</option>
+                <option value="Residencial">Residencial</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Industrial">Industrial</option>
+              
+                <!-- Adicione mais categorias de acordo com seu banco de dados-->
         </select>            
         </div> <!--searchbar-->
 
     </div><!--header-->
     <div class="content">
 
-    <div class="prompts">
-        <div class="label">GPT4</div>
+    <div class="prompt">
+        <div class="label">Residencial</div>
         <div class="prompt-image">
-            <image src="images.jpg"  alt="Imagem" />
+            <img src="imagens/residencial.png"  alt="ImagemResidencial" />
         </div>
         <div class="prompt-info">
             <h3>Instalação Residencial</h3>
-            <p>valor</p>
+            <p>O mais segura para sua residencia</p>
         </div>
         <div class="prompt-description">
-                        <p>Energia Sustentavel</p>
+             <p>Use energia Solar e Economize</p>
         </div>
-        <a class="subscribe-button" href="#">Ver Completo</a>
+        <a class="subscribe-button" href="http://youtube.com/watch?v=-Z2ssWomtoI">Informações</a>
         
     </div> <!--prompt-->
-    <div class="prompts">
-        <div class="label">GPT4</div>
+    <div class="prompt">
+        <div class="label">Comercial</div>
         <div class="prompt-image">
-            <image src="images.jpg"  alt="Imagem" />
+            <img src="imagens/comercial.png"  alt="ImagemComercio" />
         </div>
         <div class="prompt-info">
             <h3>Instalação Comercial</h3>
-            <p>valor</p>
+            <p>A economia do seu negócio</p>
         </div>
         <div class="prompt-description">
-                        <p>Energia Sustentavel</p>
+                        <p>Energia Fotovoltaica para seu Comercio</p>
         </div>
-        <a class="subscribe-button" href="#">Ver Completo</a>
+        <a class="subscribe-button" href="https://www.youtube.com/watch?v=-Z2ssWomtoI">Informações</a>
         
     </div> <!--prompt-->
-    <div class="prompts">
+    <div class="prompt">
         <div class="label">GPT4</div>
         <div class="prompt-image">
-            <image src="images.jpg"  alt="Imagem" />
+            <img src="imagens/Industrial.png"  alt="ImagemIndustria" />
         </div>
         <div class="prompt-info">
             <h3>Instalação Industrial</h3>
-            <p>valor</p>
+            <p>Sustentabilidade e Segurança </p>
         </div>
         <div class="prompt-description">
-                        <p>Energia Sustentavel</p>
+                        <p>Energia Sustentavel pelo futuro </p>
         </div>
-        <a class="subscribe-button" href="#">Ver Completo</a>
+        <a class="subscribe-button" href="https://www.youtube.com/watch?v=_J7Ffc074Ug">Informações</a>
         
     </div> <!--prompt-->
 </div>
